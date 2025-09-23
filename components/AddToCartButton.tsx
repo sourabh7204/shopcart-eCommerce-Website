@@ -2,7 +2,7 @@
 import { Product } from "@/sanity.types";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { ShoppingCartIcon } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import useStore from "@/store";
 import toast from "react-hot-toast";
 import PriceFormatter from "./PriceFormatter";
@@ -18,7 +18,6 @@ const AddToCartButton = ({ product, className }: Props) => {
   const itemCount = getItemCount(product?._id);
   const isOutOfStock = product?.stock === 0;
 
-  //add to cart Event Handler
   const handleAddToCart = () => {
     if ((product?.stock as number) > itemCount) {
       addItem(product);
@@ -53,7 +52,7 @@ const AddToCartButton = ({ product, className }: Props) => {
             className
           )}
         >
-          <ShoppingCartIcon /> {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+          <ShoppingCart /> {isOutOfStock ? "Out of Stock" : "Add to Cart"}
         </Button>
       )}
     </div>

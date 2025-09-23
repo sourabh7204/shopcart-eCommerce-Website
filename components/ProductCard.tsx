@@ -7,9 +7,8 @@ import { StarIcon } from "@sanity/icons";
 import { Flame } from "lucide-react";
 import PriceView from "./PriceView";
 import Title from "./Title";
-// import ProductSideMenu from "./ProductSideMenu";
+import ProductSideMenu from "./ProductSideMenu";
 import AddToCartButton from "./AddToCartButton";
-import AddToWishlistButton from "./AddToWishlistButton";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -28,9 +27,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             />
           </Link>
         )}
-        <AddToWishlistButton product={product} />
-
-        {/* <ProductSideMenu product={product} /> */}
+        <ProductSideMenu product={product} />
         {product?.status === "sale" ? (
           <p className="absolute top-2 left-2 z-10 text-xs border border-darkColor/50 px-2 rounded-full group-hover:border-lightGreen hover:text-shop_dark_green hoverEffect">
             Sale!
@@ -50,7 +47,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       </div>
       <div className="p-3 flex flex-col gap-2">
         {product?.categories && (
-          <p className="uppercase line-clamp-1 text-xs font-medium text-shop_text_lightText">
+          <p className="uppercase line-clamp-1 text-xs font-medium text-lightText">
             {product.categories.map((cat) => cat).join(", ")}
           </p>
         )}
@@ -61,7 +58,7 @@ const ProductCard = ({ product }: { product: Product }) => {
               <StarIcon
                 key={index}
                 className={
-                  index < 4 ? "text-shop_lighter_green" : " text-lightText"
+                  index < 4 ? "text-shop_light_green" : " text-lightText"
                 }
                 fill={index < 4 ? "#93D991" : "#ababab"}
               />
