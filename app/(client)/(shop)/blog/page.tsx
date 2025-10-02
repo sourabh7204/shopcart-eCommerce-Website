@@ -40,7 +40,6 @@ const BlogPage = async () => {
                 <div className="text-xs flex items-center gap-5">
                   <div className="flex items-center relative group cursor-pointer">
                     {blog?.blogcategories?.map(
-                      //Item receiving from sanity schema
                       (
                         item: {
                           title:
