@@ -12,14 +12,14 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import PriceFormatter from "./PriceFormatter";
 import AddToCartButton from "./AddToCartButton";
-
+// Component to display and manage wishlist products
 const WishListProducts = () => {
   const [visibleProducts, setVisibleProducts] = useState(7);
   const { favoriteProduct, removeFromFavorite, resetFavorite } = useStore();
   const loadMore = () => {
     setVisibleProducts((prev) => Math.min(prev + 5, favoriteProduct.length));
   };
-
+  // Reset wishlist handler
   const handleResetWishlist = () => {
     const confirmReset = window.confirm(
       "Are you sure you want to reset your wishlist?"
@@ -29,7 +29,7 @@ const WishListProducts = () => {
       toast.success("Wishlist reset successfully");
     }
   };
-
+  // Render wishlist products or empty state
   return (
     <Container>
       {favoriteProduct?.length > 0 ? (
