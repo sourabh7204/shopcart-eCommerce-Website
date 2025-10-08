@@ -12,7 +12,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import PriceFormatter from "./PriceFormatter";
 import AddToCartButton from "./AddToCartButton";
-
+// Component to display wishlist products
 const WishListProducts = () => {
   const [visibleProducts, setVisibleProducts] = useState(7);
   const { favoriteProduct, removeFromFavorite, resetFavorite } = useStore();
@@ -29,7 +29,7 @@ const WishListProducts = () => {
       toast.success("Wishlist reset successfully");
     }
   };
-
+  // Render the wishlist products or an empty state message
   return (
     <Container>
       {favoriteProduct?.length > 0 ? (
@@ -118,6 +118,7 @@ const WishListProducts = () => {
                 </Button>
               </div>
             )}
+            // Load less button if more than 10 products are visible
             {visibleProducts > 10 && (
               <div className="my-5">
                 <Button
