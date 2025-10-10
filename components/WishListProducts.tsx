@@ -29,7 +29,7 @@ const WishListProducts = () => {
       toast.success("Wishlist reset successfully");
     }
   };
-
+  // Render wishlist products
   return (
     <Container>
       {favoriteProduct?.length > 0 ? (
@@ -110,6 +110,7 @@ const WishListProducts = () => {
               </tbody>
             </table>
           </div>
+          // Load more & Load less buttons
           <div className="flex items-center gap-2">
             {visibleProducts < favoriteProduct?.length && (
               <div className="my-5">
