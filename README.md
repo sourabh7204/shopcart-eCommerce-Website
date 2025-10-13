@@ -30,7 +30,7 @@ The goal is to create a scalable and modern eCommerce platform with product list
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/shopcart-mern-ts.git
+git clone https://github.com/sourabh7204/shopcart-mern-ts.git
 cd shopcart-mern-ts
 ```
 ---
