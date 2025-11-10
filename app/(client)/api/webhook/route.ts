@@ -169,3 +169,40 @@ async function updateStockLevels(
     }
   }
 }
+
+import type { NextApiRequest, NextApiResponse } from "next";
+import { serverClient } from "@/sanity/lib/sanity.server";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method Not Allowed" });
+  }
+
+  try {
+    console.log("📦 Received order data:", req.body);
+
+    const { name, email, address, items, total, paymentId } = req.body;
+
+    const doc = {
+      _type: "order",
+      customerName: name,
+      email,
+      address,
+      items,
+      total,
+      paymentId,
+      status: "confirmed",
+      createdAt: new Date().toISOString(),
+    };
+
+    const created = await serverClient.create(doc);
+    console.log("✅ Order created:", created._id);
+    res.status(200).json({ success: true, orderId: created._id });
+  } catch (err: any) {
+    console.error("❌ Sanity save failed:", err.message);
+    res.status(500).json({ success: false, error: err.message });
+  }
+}

@@ -110,8 +110,8 @@ const WishListProducts = () => {
               </tbody>
             </table>
           </div>
-          // Load more & Load less buttons
-          <div className="flex items-center gap-2">
+
+          <div className="flex items-center gap-2 p-2">
             {visibleProducts < favoriteProduct?.length && (
               <div className="my-5">
                 <Button variant="outline" onClick={loadMore}>
